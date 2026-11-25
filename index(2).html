@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#075b36">
+<title>Dataplug Ghana | Affordable Data Bundles</title>
+<meta name="description" content="Buy affordable MTN, Telecel and AT Ghana data bundles. Order directly on WhatsApp with Dataplug Ghana.">
+<style>
+:root{--green:#087443;--deep:#064b2e;--gold:#ffd34e;--ink:#17231d;--muted:#64736b;--bg:#f4f8f5;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(120deg,var(--deep),#0b8650);color:#fff;padding:20px 5vw 54px}
+nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:1.25rem;font-weight:900;letter-spacing:.3px}.brand span{color:var(--gold)}
+.pill{border:1px solid #ffffff70;border-radius:30px;padding:8px 13px;font-size:.85rem}
+.hero{max-width:1100px;margin:50px auto 0}.hero h1{font-size:clamp(2.1rem,6vw,4rem);line-height:1.05;margin:0 0 14px;max-width:700px}.hero p{max-width:600px;color:#e2f3e9;font-size:1.08rem;margin:0 0 24px}
+.cta{display:inline-block;background:var(--gold);color:#193322;text-decoration:none;font-weight:800;padding:13px 20px;border-radius:10px}
+main{max-width:1100px;margin:-24px auto 0;padding:0 18px 50px}
+.panel{background:var(--white);border-radius:18px;padding:24px;box-shadow:0 10px 35px #173c2510;margin-bottom:22px}
+h2{margin:0 0 8px;font-size:1.55rem}.sub{color:var(--muted);margin:0 0 20px}
+.networks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.network{border:2px solid #e2eae4;background:#fff;border-radius:12px;padding:14px 10px;font-weight:800;cursor:pointer;font-size:1rem}
+.network[aria-pressed="true"]{border-color:var(--green);background:#eaf6ef;color:var(--deep)}
+.field{margin:16px 0}.field label{display:block;font-weight:700;margin-bottom:7px}
+select,input{width:100%;padding:14px;border:1px solid #cbd8cf;border-radius:10px;font:inherit;background:white;color:var(--ink)}
+.bundle-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.bundle{border:1.5px solid #dce6df;border-radius:12px;padding:14px 10px;text-align:center;background:#fff;cursor:pointer}
+.bundle strong{display:block;font-size:1.05rem}.bundle span{color:var(--green);font-weight:800}
+.bundle[aria-pressed="true"]{border-color:var(--green);background:#edf8f1;box-shadow:0 0 0 1px var(--green)}
+.summary{background:#f0f7f2;border-radius:12px;padding:16px;margin:18px 0}
+.summary-row{display:flex;justify-content:space-between;gap:12px;margin:5px 0}.total{font-size:1.3rem;font-weight:900;color:var(--deep)}
+.order{display:block;width:100%;border:0;border-radius:11px;background:#159447;color:white;padding:16px;font-size:1.05rem;font-weight:900;cursor:pointer}
+.order:hover{background:#08743a}.hint{font-size:.88rem;color:var(--muted);margin:10px 0 0}
+.payment{display:grid;grid-template-columns:1fr 1fr;gap:12px}.payment div{background:#f7faf8;padding:14px;border-radius:10px}
+.payment small{display:block;color:var(--muted)}.payment strong{font-size:1.05rem}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:.9rem}
+@media(max-width:650px){.bundle-grid{grid-template-columns:repeat(2,1fr)}.networks{gap:7px}.network{font-size:.9rem;padding:12px 5px}.panel{padding:18px}.payment{grid-template-columns:1fr}.hero{margin-top:38px}}
+</style>
+</head>
+<body>
+<header>
+  <nav><div class="brand">DATA<span>PLUG</span> GHANA</div><div class="pill">Simple · Fast · Convenient</div></nav>
+  <section class="hero">
+    <h1>Stay connected for less.</h1>
+    <p>Choose your network, pick a data bundle and send your order directly to Dataplug Ghana on WhatsApp.</p>
+    <a class="cta" href="#order">Choose a data bundle ↓</a>
+  </section>
+</header>
+<main>
+  <section class="panel" id="order">
+    <h2>Order your data</h2>
+    <p class="sub">Select a network and bundle, then enter the number that should receive the data.</p>
+    <div class="networks" role="group" aria-label="Choose network">
+      <button class="network" type="button" data-network="MTN" aria-pressed="true">MTN</button>
+      <button class="network" type="button" data-network="Telecel" aria-pressed="false">Telecel</button>
+      <button class="network" type="button" data-network="AT Ghana" aria-pressed="false">AT Ghana</button>
+    </div>
+    <div class="field"><label for="bundle">Available data bundles</label><div class="bundle-grid" id="bundles"></div></div>
+    <div class="field"><label for="phone">Recipient phone number</label><input id="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="e.g. 0241234567" autocomplete="tel"></div>
+    <div class="summary" aria-live="polite">
+      <div class="summary-row"><span>Network</span><strong id="sumNetwork">MTN</strong></div>
+      <div class="summary-row"><span>Bundle</span><strong id="sumBundle">1GB</strong></div>
+      <div class="summary-row"><span>Total price</span><strong class="total" id="sumPrice">GH₵5</strong></div>
+    </div>
+    <button class="order" id="orderBtn" type="button">Order on WhatsApp</button>
+    <p class="hint">Your order details will be prepared in WhatsApp. Review and send the message to complete your order.</p>
+  </section>
+  <section class="panel">
+    <h2>Payment instructions</h2>
+    <p class="sub">After confirming your order with us on WhatsApp, make payment using the details below.</p>
+    <div class="payment">
+      <div><small>Mobile Money number</small><strong>0539392084</strong></div>
+      <div><small>Account name</small><strong>Darlington Dzokoto Sistofe</strong></div>
+    </div>
+    <p class="hint">Please confirm the order and payment instructions with Dataplug Ghana before sending money. Orders and data delivery are handled manually.</p>
+  </section>
+  <section class="panel">
+    <h2>Need help?</h2>
+    <p class="sub">Contact Dataplug Ghana directly for order questions or assistance.</p>
+    <a class="cta" href="https://wa.me/233539392084?text=Hello%20Dataplug%20Ghana%2C%20I%20need%20help%20with%20a%20data%20order.">Chat with us on WhatsApp</a>
+  </section>
+</main>
+<footer>© <span id="year"></span> Dataplug Ghana. All rights reserved.</footer>
+<script>
+const prices = {
+  "MTN": {"1GB":5,"2GB":8,"3GB":12,"4GB":14,"5GB":17,"6GB":19,"10GB":20},
+  "Telecel": {"1GB":6,"2GB":10,"3GB":14,"4GB":17,"5GB":20,"6GB":25,"10GB":35},
+  "AT Ghana": {"1GB":5,"2GB":8,"3GB":12,"4GB":15,"5GB":18,"6GB":22,"10GB":25}
+};
+let network="MTN", bundle="1GB";
+const bundlesEl=document.getElementById("bundles");
+function render(){
+  document.querySelectorAll(".network").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.network===network)));
+  bundlesEl.innerHTML="";
+  Object.entries(prices[network]).forEach(([size,price])=>{
+    const b=document.createElement("button"); b.type="button"; b.className="bundle";
+    b.setAttribute("aria-pressed",String(size===bundle));
+    b.innerHTML=`<strong>${size}</strong><span>GH₵${price}</span>`;
+    b.addEventListener("click",()=>{bundle=size;render()});
+    bundlesEl.appendChild(b);
+  });
+  document.getElementById("sumNetwork").textContent=network;
+  document.getElementById("sumBundle").textContent=bundle;
+  document.getElementById("sumPrice").textContent=`GH₵${prices[network][bundle]}`;
+}
+document.querySelectorAll(".network").forEach(b=>b.addEventListener("click",()=>{network=b.dataset.network;bundle="1GB";render()}));
+document.getElementById("orderBtn").addEventListener("click",()=>{
+  const raw=document.getElementById("phone").value.trim();
+  const digits=raw.replace(/\D/g,"");
+  if(!/^\d{10}$/.test(digits)){alert("Please enter a valid 10-digit Ghana recipient number.");document.getElementById("phone").focus();return;}
+  const price=prices[network][bundle];
+  const message=`Hello Dataplug Ghana, I want to order data.\n\nNetwork: ${network}\nBundle: ${bundle}\nPrice: GH₵${price}\nRecipient number: ${digits}\n\nPlease confirm payment and processing.`;
+  window.open("https://wa.me/233539392084?text="+encodeURIComponent(message),"_blank","noopener");
+});
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
